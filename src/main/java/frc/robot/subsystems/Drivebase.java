@@ -10,10 +10,12 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+
 // import subsystem in Constants 
 import static  frc.robot.Constants.Subsystem.*;
 import static frc.robot.Constants.Joystick_Button.*;
 import static frc.robot.Constants.Joystick_Axis.*;
+import static frc.robot.Constants.Speed.*;
 
 public class Drivebase extends SubsystemBase {
   /** Creates a new Drivebase. */
@@ -22,7 +24,8 @@ public class Drivebase extends SubsystemBase {
   public WPI_TalonSRX rightFollow = new WPI_TalonSRX (LM_MOTOR_ID);
   public WPI_TalonSRX leftFollow  = new WPI_TalonSRX (LF_MOTOR_ID);
   
-  public Joystick psman = new Joystick(1);
+  
+  public Joystick psman = new Joystick(0);
   public Drivebase() {
 
 
@@ -49,8 +52,9 @@ public class Drivebase extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    double speed_boost = psman.getRawButton(A_BUTTON)? 0.8: 0.4;
-    drive(psman.getRawAxis(1)*speed_boost, psman.getRawAxis(3)*speed_boost);
-    drive(psman.getRawAxis(2)*speed_boost, psman.getRawAxis(4)*speed_boost);
-  } 
+    double boost = psman.getRawButton(A_BUTTON)? V_FAST: V_NORMAL;
+    drive(psman.getRawAxis(LEFT_HORIZONTAL_AXIS)*boost, psman.getRawAxis(UPDOWN_HORIZONTAL_AXIS)*boost);
+ 
+ }
 }
+
