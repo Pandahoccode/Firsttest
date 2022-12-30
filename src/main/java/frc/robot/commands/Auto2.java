@@ -4,7 +4,7 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.Sucker;
@@ -13,11 +13,11 @@ import static frc.robot.Constants.Speed.*;
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
-public class Auto extends SequentialCommandGroup {
-  /** Creates a new auto. */
-  public Auto(Drivebase db, Sucker in, Elevator ele) {
+public class Auto2 extends ParallelCommandGroup {
+  /** Creates a new Auto2. */
+  public Auto2(Drivebase db) {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-  addCommands(new DriveStraight(db, V_NORMAL).withTimeout(5), new Suck(in, V_INTAKE).withTimeout(4), new Elevate(ele, V_ELEVATOR).withTimeout(2));
+    addCommands(new DriveStraight(db, V_NORMAL).withTimeout(1));
   }
 }

@@ -10,27 +10,30 @@ import frc.robot.subsystems.Sucker;
 public class Suck extends CommandBase {
   
   /** Creates a new Suck. */
-  private Sucker m_intake;
+  private Sucker m_suck;
   private double intakeV;
-  public Suck(Sucker intake, double speed) {
+  
+  public Suck(Sucker suck, double speed) {
     // Use addRequirements() here to declare subsystem dependencies.
-    m_intake = intake;
+    m_suck = suck;
     intakeV = speed;
+    addRequirements(m_suck);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {}
   // Called every time the scheduler runs while the command is scheduled.
+
   @Override
   public void execute() {
-    m_intake.intake(intakeV);
+    m_suck.intake(intakeV);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_intake.intake(0);
+    m_suck.intake(0);
   }
 
   // Returns true when the command should end.

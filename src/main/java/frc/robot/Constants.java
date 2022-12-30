@@ -39,8 +39,8 @@ public final class Constants {
        public static final int RIGHT_BUTTON = 6;
        public static final int BACK_BUTTON = 7;
        public static final int START_BUTTON = 8;
-       public static final int L3_BUTTON = 9;
-       public static final int R3_BUTTON = 10;
+       public static final int L2_BUTTON = 9;
+       public static final int R2_BUTTON = 10;
    }
 
     // Final class Joystick Axis
@@ -61,6 +61,7 @@ public final class Constants {
         public static final double V_NORMAL = 0.4;
         public static final double V_LOW = 0.2;  
         public static final double V_INTAKE = 0.7;
-        public static final double V_INTAKE_2 = 0.5;
+        public static final double V_ELEVATOR = 0.5;
+        public static final double V_NULL = 0;
    }
 }

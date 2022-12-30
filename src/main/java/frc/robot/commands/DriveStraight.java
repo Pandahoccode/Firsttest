@@ -11,6 +11,7 @@ public class DriveStraight extends CommandBase {
   /** Creates a new DriveSraight. */
   private Drivebase m_db;
   private double drivebaseV;
+  
   public DriveStraight(Drivebase db, double speed) {
     // Use addRequirements() here to declare subsystem dependencies.
     m_db = db;

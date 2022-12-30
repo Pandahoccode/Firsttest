@@ -17,6 +17,7 @@ import frc.robot.subsystems.Sucker;
 //import command
 import frc.robot.commands.Suck;
 import frc.robot.commands.Auto;
+import frc.robot.commands.DriveStraight;
 import frc.robot.commands.Elevate;
 
 //import constants
@@ -24,7 +25,7 @@ import static frc.robot.Constants.Speed.*;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import static frc.robot.Constants.Joystick_Button.*;
 
-/**
+/**%
  * This class is where the bulk of the robot should be declared. Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
  * periodic methods (other than the scheduler calls). Instead, the structure of the robot (including
@@ -40,11 +41,11 @@ import static frc.robot.Constants.Joystick_Button.*;
   public final Elevator m_elevator = new Elevator();
 
   // The robot's commands are defined here...
-  public final Command Suck = new Suck(m_suck, V_INTAKE);
-  public final Command Spit = new Suck(m_suck, -V_INTAKE);
-  public final Command Elevator_1 = new Elevate(m_elevator, V_INTAKE_2);
-  public final Command Elevator_2 = new Elevate(m_elevator, - V_INTAKE_2);
-  public final Command Auto = new Auto(drivebase, m_suck);
+  Command Suck = new Suck(m_suck, V_INTAKE);
+  Command Spit = new Suck(m_suck, -V_INTAKE);
+  Command Elevator_Up = new Elevate(m_elevator, V_LOW);
+  Command Elevator_Down = new Elevate(m_elevator, - V_LOW);
+  Command Auto = new Auto(drivebase, m_suck, m_elevator);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -59,10 +60,11 @@ import static frc.robot.Constants.Joystick_Button.*;
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    new JoystickButton(psman, A_BUTTON).whenActive(Suck);
-    new JoystickButton(psman, B_BUTTON).whenActive(Spit);
-    new JoystickButton(psman, X_BUTTON).whenActive(Elevator_1);
-    new JoystickButton(psman, X_BUTTON).whenActive(Elevator_2);
+    new JoystickButton(psman, A_BUTTON).whileActiveOnce(Suck);
+    new JoystickButton(psman, B_BUTTON).whileActiveOnce(Spit);
+    new JoystickButton(psman, X_BUTTON).whileActiveOnce(Elevator_Up);
+    new JoystickButton(psman, Y_BUTTON).whileActiveOnce(Elevator_Down);
+  
   }
 
   /**
@@ -73,7 +75,6 @@ import static frc.robot.Constants.Joystick_Button.*;
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
     
-    //return Auto;
-    return null;
+    return Auto;
   }
 }

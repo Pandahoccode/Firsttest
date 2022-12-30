@@ -4,6 +4,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Elevator;
 
@@ -15,18 +16,19 @@ public class Elevate extends CommandBase {
   public Elevate (Elevator elevate, double speed) {
     // Use addRequirements() here to declare subsystem dependencies.
     m_elevate = elevate;
-    speed = elevateV;
+    elevateV =speed;
     addRequirements(m_elevate);
   }
   
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {m_elevate.elevate(elevateV);
+  SmartDashboard.putBoolean("a", true);}
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_elevate.elevate(elevateV);
+    
   }
 
   // Called once the command ends or is interrupted.
