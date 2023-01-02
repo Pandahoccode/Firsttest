@@ -23,7 +23,7 @@ public final class Constants {
        public static final int LM_MOTOR_ID = 2;
        public static final int RF_MOTOR_ID = 3;    
        public static final int LF_MOTOR_ID = 4;
-       public static final int INTAKE_1_ID = 5;
+       public static final int SUCK_MOTOR_ID = 5;
        public static final int ELEVATOR_1_ID = 6;
        public static final int ELEVATOR_2_ID = 7;
     }

@@ -6,6 +6,8 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -17,15 +19,21 @@ public class Elevator extends SubsystemBase {
   /** Creates a new Elevator. */
   public static WPI_TalonFX Intake_2 = new WPI_TalonFX(ELEVATOR_1_ID);
   public static WPI_TalonSRX Intake_3 = new WPI_TalonSRX(ELEVATOR_2_ID);
+  public static WPI_TalonSRX Intake_Suck = new WPI_TalonSRX(SUCK_MOTOR_ID);
+  
   public Elevator() {
     Intake_2.setNeutralMode(NeutralMode.Brake);
     Intake_3.setNeutralMode(NeutralMode.Brake);
+    Intake_Suck.setNeutralMode(NeutralMode.Brake);
 
   }
-  public void elevate(double speed) {
-    Intake_2.set(-speed);
-    Intake_3.set(speed);
-    SmartDashboard.putNumber("Intake Speed", speed);
+  public void elevate(double velocity,double elevate1, double elevate2) {
+    Intake_2.set(elevate1);
+    Intake_3.set(elevate2);
+    Intake_Suck.set(velocity);
+
+    SmartDashboard.putNumber("Intake Speed", elevate1);
+    SmartDashboard.putNumber("Intake Speed", elevate2);
   }
   
   @Override

@@ -11,30 +11,37 @@ import frc.robot.subsystems.Elevator;
 public class Elevate extends CommandBase {
   /** Creates a new Elevate. */
   private Elevator m_elevate;
-  private double elevateV;
+  private double elevateV1;
+  private double speed_suck;
+  private double elevateV2;
 
-  public Elevate (Elevator elevate, double speed) {
+  public Elevate (Elevator elevate,  double suckV,double elevate_1, double elevate_2) {
     // Use addRequirements() here to declare subsystem dependencies.
     m_elevate = elevate;
-    elevateV =speed;
+    elevateV1 = elevate_1;
+    speed_suck = suckV;
+    elevateV2 = elevate_2;
+
+
     addRequirements(m_elevate);
   }
   
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {m_elevate.elevate(elevateV);
-  SmartDashboard.putBoolean("a", true);}
+  public void initialize() {}
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    m_elevate.elevate(speed_suck,elevateV1,elevateV2);
+    SmartDashboard.putBoolean("a", true);
     
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_elevate.elevate(0);
+    m_elevate.elevate(0,0,0);
   }
 
   // Returns true when the command should end.
@@ -43,3 +50,4 @@ public class Elevate extends CommandBase {
     return false;
   }
 }
+

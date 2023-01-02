@@ -13,7 +13,7 @@ import static  frc.robot.Constants.Subsystem.*;
 
 public class Sucker extends SubsystemBase {
   /** Creates a new Intake. */
-  public WPI_TalonSRX Intake  = new WPI_TalonSRX (INTAKE_1_ID);
+  public WPI_TalonSRX Intake  = new WPI_TalonSRX (SUCK_MOTOR_ID);
   
   public Sucker() {
     Intake.setNeutralMode(NeutralMode.Brake);
