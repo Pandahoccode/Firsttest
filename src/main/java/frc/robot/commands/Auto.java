@@ -15,9 +15,9 @@ import static frc.robot.Constants.Speed.*;
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 public class Auto extends SequentialCommandGroup {
   /** Creates a new auto. */
-  public Auto(Drivebase db, Sucker in, Elevator ele) {
+  public Auto(Drivebase db, Sucker in, Elevator elevator) {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-  addCommands(new DriveStraight(db, V_NORMAL).withTimeout(5), new Suck(in, V_INTAKE).withTimeout(4), new Elevate(ele, V_ELEVATOR).withTimeout(2));
+  addCommands(new DriveStraight(db, V_NORMAL).withTimeout(5), new Suck(in, V_INTAKE).withTimeout(4));
   }
 }
