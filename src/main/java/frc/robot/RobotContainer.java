@@ -43,8 +43,8 @@ import static frc.robot.Constants.Joystick_Button.*;
   // The robot's commands are defined here...
 
   Command Spit = new Suck(m_suck, -V_INTAKE);
-  Command Elevator_Up = new Elevate(m_elevator, V_NORMAL,V_LOW, -V_NORMAL);
-  Command Elevator_Down = new Elevate(m_elevator, - V_LOW,0,0);
+  Command Elevator_Up = new Elevate(m_elevator, V_INTAKE,V_LOW, -V_NORMAL);
+  Command Elevator_Down = new Elevate(m_elevator, - V_INTAKE, - V_LOW, V_NORMAL);
   Command Auto = new Auto(drivebase, m_suck, m_elevator);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -61,8 +61,8 @@ import static frc.robot.Constants.Joystick_Button.*;
    */
   private void configureButtonBindings() {
     new JoystickButton(psman, B_BUTTON).whileActiveOnce(Spit);
-    new JoystickButton(psman, ).whileActiveOnce(Elevator_Up);
-    new JoystickButton(psman, Y_BUTTON).whileActiveOnce(Elevator_Down);
+    new JoystickButton(psman, Right_Bumper).whileActiveOnce(Elevator_Up);
+    new JoystickButton(psman, Left_Bumper).whileActiveOnce(Elevator_Down);
   
   }
 

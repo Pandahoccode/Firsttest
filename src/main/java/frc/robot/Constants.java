@@ -35,24 +35,21 @@ public final class Constants {
        public static final int A_BUTTON = 2;
        public static final int B_BUTTON = 3;
        public static final int Y_BUTTON = 4;
-       public static final int LEFT_BUTTON = 5;
-       public static final int RIGHT_BUTTON = 6;
-       public static final int BACK_BUTTON = 7;
+       public static final int Left_Bumper = 5;
+       public static final int Right_Bumper = 6;
        public static final int START_BUTTON = 8;
-       public static final int L2_BUTTON = 9;
-       public static final int R2_BUTTON = 10;
+       public static final int Left_Stick = 9;
+       public static final int Right_Stick = 10;
    }
 
     // Final class Joystick Axis
     public static final class Joystick_Axis {
-        public static final int LEFT_HORIZONTAL_AXIS = 1;
-        public static final int LEFT_VERTICAL_AXIS = 2;
-        public static final int RIGHT_HORIZONTAL_AXIS = 3;
-        public static final int RIGHT_VERTICAL_AXIS = 4;
-        public static final int UPDOWN_HORIZONTAL_AXIS = 5;
-        public static final int LEFTRIGHT_VERTICAL_AXIS = 6;
-        public static final int LEFT_TRIGGER_AXIS = 7;
-        public static final int RIGHT_TRIGGER_AXIS = 8;
+        public static final int Left_Stick_X =  0;
+        public static final int Left_Stick_Y =  1;
+        public static final int Right_Stick_X = 4;
+        public static final int Right_Stick_Y = 5;
+        public static final int Left_Trigger =  2;
+        public static final int Right_Trigger = 3;
     }
 
     // Final class Speed 

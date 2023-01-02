@@ -49,8 +49,8 @@ public class Drivebase extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    double boost = psman.getRawButton(R2_BUTTON)? V_FAST: V_NORMAL;
-    drive(psman.getRawAxis(LEFT_HORIZONTAL_AXIS)*boost, psman.getRawAxis(UPDOWN_HORIZONTAL_AXIS)*boost);
+    double boost = psman.getRawButton(Right_Bumper)? V_FAST: V_NORMAL;
+    drive(psman.getRawAxis(Left_Stick_Y)*boost, psman.getRawAxis(Right_Stick_Y)*boost);
  
  }
 }
