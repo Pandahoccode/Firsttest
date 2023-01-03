@@ -11,16 +11,16 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 // import subsystem in Constants 
 import static  frc.robot.Constants.Subsystem.*;
 
-public class Sucker extends SubsystemBase {
+public class Trapper extends SubsystemBase {
   /** Creates a new Intake. */
-  public WPI_VictorSPX Intake  = new WPI_VictorSPX (SUCK_MOTOR_ID);
+  public WPI_VictorSPX TrapDoor  = new WPI_VictorSPX (TRAPDOOR_ID);
   
-  public Sucker() {
-    Intake.setNeutralMode(NeutralMode.Brake);
+  public Trapper() {
+    TrapDoor.setNeutralMode(NeutralMode.Brake);
   }
 
   public void intake (double speed) {
-    Intake.set(speed);
+    TrapDoor.set(speed);
   }
 
   @Override

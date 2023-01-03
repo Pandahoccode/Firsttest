@@ -26,14 +26,15 @@ public final class Constants {
        public static final int SUCK_MOTOR_ID = 5;
        public static final int ELEVATOR_1_ID = 6;
        public static final int ELEVATOR_2_ID = 7;
+       public static final int TRAPDOOR_ID = 8;
     }
 
     // Final class Joystick button
 
    public static final class Joystick_Button {
-       public static final int X_BUTTON = 1;
-       public static final int A_BUTTON = 2;
-       public static final int B_BUTTON = 3;
+       public static final int A_BUTTON = 1;
+       public static final int B_BUTTON = 2;
+       public static final int X_BUTTON = 3;
        public static final int Y_BUTTON = 4;
        public static final int Left_Bumper = 5;
        public static final int Right_Bumper = 6;

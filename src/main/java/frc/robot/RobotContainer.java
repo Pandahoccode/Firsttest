@@ -13,9 +13,10 @@ import edu.wpi.first.wpilibj.Joystick;
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.Sucker;
-
+import frc.robot.subsystems.Trapper;
 //import command
 import frc.robot.commands.Suck;
+import frc.robot.commands.Trapdoor;
 import frc.robot.commands.Auto;
 import frc.robot.commands.DriveStraight;
 import frc.robot.commands.Elevate;
@@ -39,14 +40,18 @@ import static frc.robot.Constants.Joystick_Button.*;
   public final Sucker m_suck = new Sucker();
   public final Drivebase drivebase = new Drivebase();
   public final Elevator m_elevator = new Elevator();
+  public final Trapper m_Trapdoor = new Trapper();
 
   // The robot's commands are defined here...
 
   Command Spit = new Suck(m_suck, -V_INTAKE);
-  Command Elevator_Up = new Elevate(m_elevator, V_INTAKE,V_LOW, -V_NORMAL);
-  Command Elevator_Down = new Elevate(m_elevator, - V_INTAKE, - V_LOW, V_NORMAL);
+  Command Suck = new Suck(m_suck, V_INTAKE);
+  Command Elevator_Up = new Elevate(m_suck, m_elevator, V_INTAKE, 0.5, -0.7);
+  Command Elevator_Down = new Elevate(m_suck, m_elevator, - V_INTAKE, - 0.3, 0.5);
+  Command tDoor_Up = new Trapdoor(m_Trapdoor, 0.4);
+  Command tDoor_Down = new Trapdoor(m_Trapdoor, -0.4);
   Command Auto = new Auto(drivebase, m_suck, m_elevator);
-
+  
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
@@ -59,11 +64,13 @@ import static frc.robot.Constants.Joystick_Button.*;
    * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
-  private void configureButtonBindings() {
-    new JoystickButton(psman, B_BUTTON).whileActiveOnce(Spit);
+  private void configureButtonBindings() { 
+    new JoystickButton(psman, X_BUTTON).whileActiveOnce(Spit);
+    new JoystickButton(psman, Y_BUTTON).whileActiveOnce(Suck);
     new JoystickButton(psman, Right_Bumper).whileActiveOnce(Elevator_Up);
     new JoystickButton(psman, Left_Bumper).whileActiveOnce(Elevator_Down);
-  
+    new JoystickButton(psman, A_BUTTON).whileActiveOnce(tDoor_Up);
+    new JoystickButton(psman, B_BUTTON).whileActiveOnce(tDoor_Down);
   }
 
   /**
