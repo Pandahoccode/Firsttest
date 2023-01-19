@@ -16,8 +16,8 @@ import static frc.robot.Constants.Speed.*;
 public class Auto extends SequentialCommandGroup {
   /** Creates a new auto. */
   public Auto(Drivebase db, Sucker in, Elevator elevator) {
-    // Add your commands in the addCommands() call, e.g.
-    // addCommands(new FooCommand(), new BarCommand());
-  addCommands(new DriveStraight(db, V_NORMAL).withTimeout(5), new Suck(in, V_INTAKE).withTimeout(4));
+    addCommands(new DriveStraight(db, -0.7).withTimeout(5));
+
+    //addCommands(new DriveStraight(db, V_NORMAL).withTimeout(5);
   }
 }

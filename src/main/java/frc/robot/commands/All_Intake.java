@@ -13,11 +13,11 @@ import static frc.robot.Constants.Speed.*;
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
-public class Auto2 extends ParallelCommandGroup {
+public class All_Intake extends ParallelCommandGroup {
   /** Creates a new Auto2. */
-  public Auto2(Drivebase db) {
+  public All_Intake(Sucker suck, Elevator elevate) {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-    addCommands(new DriveStraight(db, V_NORMAL).withTimeout(1));
+    //addCommands(new Suck(suck, -V_INTAKE), new Elevate(elevate, -0.4 , 0.6));
   }
 }

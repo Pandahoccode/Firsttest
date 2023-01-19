@@ -19,7 +19,7 @@ public class Sucker extends SubsystemBase {
     Intake.setNeutralMode(NeutralMode.Brake);
   }
 
-  public void intake (double speed) {
+  public void suck (double speed) {
     Intake.set(speed);
   }
 

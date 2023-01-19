@@ -27,13 +27,13 @@ public class Trapdoor extends CommandBase {
 
   @Override
   public void execute() {
-    m_tDoor.intake(trapV);
+    m_tDoor.trap(trapV);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_tDoor.intake(0);
+    m_tDoor.trap(0);
   }
 
   // Returns true when the command should end.

@@ -38,6 +38,7 @@ public final class Constants {
        public static final int Y_BUTTON = 4;
        public static final int Left_Bumper = 5;
        public static final int Right_Bumper = 6;
+       public static final int BACK_BUTTON = 7;
        public static final int START_BUTTON = 8;
        public static final int Left_Stick = 9;
        public static final int Right_Stick = 10;
@@ -56,7 +57,7 @@ public final class Constants {
     // Final class Speed 
     public static final class Speed {
         public static final double V_FAST = 0.8; 
-        public static final double V_NORMAL = 0.4;
+        public static final double V_NORMAL = 0.7;
         public static final double V_LOW = 0.2;  
         public static final double V_INTAKE = 0.7;
         public static final double V_ELEVATOR = 0.5;

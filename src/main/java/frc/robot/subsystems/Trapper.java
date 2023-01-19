@@ -6,20 +6,20 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
-import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 // import subsystem in Constants 
 import static  frc.robot.Constants.Subsystem.*;
 
 public class Trapper extends SubsystemBase {
   /** Creates a new Intake. */
-  public WPI_VictorSPX TrapDoor  = new WPI_VictorSPX (TRAPDOOR_ID);
+  public WPI_TalonSRX TrapDoor  = new WPI_TalonSRX(TRAPDOOR_ID);
   
   public Trapper() {
     TrapDoor.setNeutralMode(NeutralMode.Brake);
   }
 
-  public void intake (double speed) {
+  public void trap (double speed) {
     TrapDoor.set(speed);
   }
 

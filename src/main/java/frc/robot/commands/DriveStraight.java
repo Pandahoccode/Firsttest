@@ -15,7 +15,7 @@ public class DriveStraight extends CommandBase {
   public DriveStraight(Drivebase db, double speed) {
     // Use addRequirements() here to declare subsystem dependencies.
     m_db = db;
-    speed = drivebaseV;
+    drivebaseV = speed;
     addRequirements(m_db);
   }
 
@@ -26,7 +26,7 @@ public class DriveStraight extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_db.drive(drivebaseV, drivebaseV);
+    m_db.drive(drivebaseV, drivebaseV+0.1);
   }
 
   // Called once the command ends or is interrupted.

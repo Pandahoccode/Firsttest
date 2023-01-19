@@ -12,7 +12,6 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 // import subsystem in Constants 
 import static  frc.robot.Constants.Subsystem.*;
-import static frc.robot.Constants.Joystick_Button.*;
 import static frc.robot.Constants.Joystick_Axis.*;
 import static frc.robot.Constants.Speed.*;
 
@@ -49,7 +48,7 @@ public class Drivebase extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    double boost = psman.getRawButton(Right_Bumper)? V_FAST: V_NORMAL;
+    double boost = (psman.getRawAxis(Right_Trigger) >1)? V_FAST: V_NORMAL;
     drive(psman.getRawAxis(Left_Stick_Y)*boost, psman.getRawAxis(Right_Stick_Y)*boost);
  
  }
